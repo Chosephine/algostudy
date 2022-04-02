@@ -1,3 +1,6 @@
+# kakao2019 카카오 개발자 겨울 인턴십
+# https://programmers.co.kr/learn/courses/30/lessons/64061
+
 def solution(board, moves):
     # board idx 0~N-1
     # moves idx 1~N -> -1씩 해주기
