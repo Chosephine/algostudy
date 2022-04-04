@@ -4,7 +4,7 @@ if n != 0:
     # 기한이 긴 순서대로 requests 정렬
     requests.sort(key=lambda x: -x[1])
 
-    # request 할당할 work 배열 생성(리스트 길이는 최대 d)
+    # request 할당할 work 배열 생성(리스트 길이는 최대인 d)
     # 이미 할당한 request 를 체크 하기 위한 used 배열 생성
     work_n = max(requests[x][1] for x in range(n))
     work = [0] * (work_n + 1)  # 이거 안 쓰였네요.....
