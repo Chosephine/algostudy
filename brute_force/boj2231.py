@@ -1,4 +1,4 @@
-# boj223 분해합
+# boj2231 분해합
 # https://www.acmicpc.net/problem/2231
 
 import sys
