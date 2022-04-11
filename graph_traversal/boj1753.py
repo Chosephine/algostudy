@@ -26,8 +26,8 @@ def dijkstra(start, end):
         visited[min_idx] = 1
         # D 갱신
         # for i in range(1, V+1):
-            # if not visited[i] and D[i] > adj[min_idx][i] + D[min_idx]:
-            #     D[i] = adj[min_idx][i] + D[min_idx]
+        #     if not visited[i] and D[i] > adj[min_idx][i] + D[min_idx]:
+        #         D[i] = adj[min_idx][i] + D[min_idx]
         if adj[min_idx]:
             L = len(adj[min_idx])
         else:
