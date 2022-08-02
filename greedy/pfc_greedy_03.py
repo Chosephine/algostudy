@@ -1,26 +1,19 @@
-from itertools import combinations
+# baekjoon1439
 
-# N = 5
-# coins = [3, 2, 1, 1, 9]
+def stoi(s):
+    if s == '0':
+        return 0
+    if s == '1':
+        return 1
 
-N = 3
-coins = [3, 5, 7]
+S = input()
+cnt = [0] * 2
 
+for i in range(len(S)):
+    if i == 0:
+        cnt[stoi(S[i])] = 1
+    else:
+        if S[i-1] != S[i]:
+            cnt[stoi(S[i])] += 1
 
-coins.sort()  # [1, 1, 2, 3, 9]
-
-max_coin = coins[-1]
-memo = [0] * (max_coin * N + 1)
-memo[0] = 1
-
-for i in range(max_coin):
-    combs = combinations(coins, i)
-    for c in combs:
-        memo[sum(c)] = 1
-
-for j in range(len(memo)):
-    if not memo[j]:
-        print(j)
-        break
-
-
+print(min(cnt))
