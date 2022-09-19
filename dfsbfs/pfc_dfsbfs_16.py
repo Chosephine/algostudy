@@ -12,6 +12,7 @@ from collections import deque
 N, M = map(int, input().split())
 lab = [list(map(int, input().split())) for _ in range(N)]
 
+# 빈칸, 바이러스 좌표 저장
 blanks = []
 viruses = []
 for n in range(N):
@@ -21,10 +22,13 @@ for n in range(N):
         if lab[n][m] == 2:
             viruses.append((n, m))
 
+
+#빈칸 세개 뽑아서 벽만들어 주고, 바이러스 전염시킨 뒤, 안전한 곳 갯수 세기
 max_safe = 0
 comb_walls = combinations(blanks, 3)
 # print(list(comb_walls))
 for walls in comb_walls:
+    # lab에 영향 안가게 deepcopy
     new_lab = deepcopy(lab)
     for wall in walls:
         y, x = wall
