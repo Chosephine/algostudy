@@ -1,10 +1,4 @@
-# What I solve
-programmers 코딩테스트 입문 
-
----
-# What language I use
-java
-
----
 # Purpose of this directory
-java에 대한 숙련도 높이기
+- 자바에 익숙해지기
+- 알고리즘 공부
+- programmers 코테 환경에 익숙해지기
