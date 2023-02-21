@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
  * programmers 코딩테스트 입문
  * 분수의 덧셈
@@ -34,8 +36,9 @@ public class solve003{
     }
     
     public static void main(String[] args) throws Exception {
-        
-    	System.out.print(solution(1, 2, 3, 4));
+    	System.out.printf("hello world\n");
+    	int[] answer = solution(1, 2, 3, 4);
+    	System.out.printf(Arrays.toString(answer));
     	
     }
 }
