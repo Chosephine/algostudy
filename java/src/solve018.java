@@ -1,27 +1,46 @@
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 /*
  * programmers 코딩테스트 입문
- * 짝수 홀수 개수
+ * 문자 반복 출력하기
 */
 
 public class solve018{
-	public static int[] solution(int[] num_list) {
-        int[] answer = {0, 0};
-        for (int num : num_list) {
-        	if (num % 2 == 0) {
-        		answer[0] += 1;
-        		// answer[0]++; 와 동일하다!
-        	} else {
-        		answer[1] += 1;
-        	}
-        }
-        return answer;
-    }
+//	public static String solution(String my_string, int n) {
+//		String[] myStringArray = my_string.split("");
+//		String[] answer = new String[my_string.length()*n];
+//        int index = 0;
+//        for (String s : myStringArray) {
+//        	for (int i=0 ; i < n; i++) {
+//        		answer[index] = s;
+//        		index++;
+//        	}
+//        	
+//        }
+//
+//        return String.valueOf(answer.toString());
+//        // 이건 String 참조 위치로 반환...
+//    }
+//	
+	public static String solution(String my_string, int n) {
+		char[] myStringArray = my_string.toCharArray();
+		char[] answer = new char[my_string.length()*n];
+		int index = 0;
+		for (char s : myStringArray) {
+			for (int i=0 ; i < n; i++) {
+				answer[index] = s;
+				index++;
+			}
+		}
+		
+		return String.valueOf(answer);
+	}
 
     public static void main(String[] args) throws Exception {
-        int[] inPut = {1, 3, 5, 7};
-        int[] answer = solution(inPut);
-    	System.out.println(Arrays.toString(answer));
+        String inStr = "hello";
+        int inNum = 3;
+        String answer = solution(inStr, inNum);
+    	System.out.println(answer);
     }
 }
