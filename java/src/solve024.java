@@ -2,7 +2,7 @@ import java.util.*;
 
 /*
  * programmers 코딩테스트 입문
- * 짝수의 합
+ * 외계행성의 나이
 */
 
 public class solve024{
