@@ -1,4 +1,5 @@
 import java.util.*;
+import java.math.BigInteger;
 
 /*
  * programmers 코딩테스트 입문
@@ -7,22 +8,22 @@ import java.util.*;
 
 public class solve030{
 
-	public static int solution(int balls, int share) {
-        long answer = 1;
-        long answer2 = 1;
+	public static BigInteger solution(int balls, int share) {
+        BigInteger answer = BigInteger.ONE;
+        BigInteger answer2 = BigInteger.ONE;
         for (int s=1 ; s <= share; s++) {
-        	answer *= balls + 1 - s;
-            answer2 *= s;
+        	answer = answer.multiply(BigInteger.valueOf(balls + 1 - s));
+            answer2 = answer2.multiply(BigInteger.valueOf(s));
         }
         
-        return (int) (answer/answer2);
+        return answer.divide(answer2);
     }
 	
     public static void main(String[] args) throws Exception {
     	System.out.printf("hello world\n");
-    	int inPut1 = 5;
-    	int inPut2 = 3;
-    	int answer = solution(inPut1, inPut2);
+    	int inPut1 = 30;
+    	int inPut2 = 30;
+    	BigInteger answer = solution(inPut1, inPut2);
     	System.out.println(answer);
     }
 }
