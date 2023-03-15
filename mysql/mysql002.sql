@@ -17,3 +17,7 @@ WHERE ADDRESS LIKE '경기도%'
 ORDER BY
     WAREHOUSE_ID;
 
+-- wildcard
+-- % : 0개이상의 문자
+-- _ : 임의의 단일 문자
+
