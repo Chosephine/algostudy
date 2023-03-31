@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 /*
  * programmers 코딩테스트 입문
@@ -5,6 +6,12 @@
  */
 
 public class solve033 {
+	public static int resident(int n, int d) {
+		// q: quotient(몫), r: resident(나머지)
+		int q = n / d;
+		int r = n - d * q;
+		return r;
+	}
 	
 	public static int solution(int[] numbers, int k) {
 		int answer = 0;
@@ -42,10 +49,43 @@ public class solve033 {
         return answer;
     }
 	
+	public static int solution2(int[] numbers, int k) {
+		int num_len = numbers.length;
+		int answer = 0;
+		if (resident(num_len, 2) == 0) {
+			int[] candidates = new int[num_len / 2];
+			for (int i = 0; i < num_len / 2; i++) {
+				candidates[i] = numbers[2*i];
+			}
+			
+			System.out.println(Arrays.toString(candidates));
+			int r = resident(k-1, num_len / 2);
+			answer = candidates[r];
+					
+		} else {
+			int[] candidates = new int[num_len];
+			for (int i = 0; i < (num_len + 1) / 2; i++) {
+				
+				candidates[i] = numbers[2*i];
+				
+				if (i != num_len / 2) {
+					candidates[i + (num_len + 1) / 2] = numbers[2 * i + 1];
+				}
+			}
+			
+			System.out.println(Arrays.toString(candidates));
+			int r = resident(k-1, num_len);
+			answer = candidates[r];
+			
+		}
+		return answer;
+	}
+	
 	public static void main(String[] args) {
-		int[] inPut1 = {1, 2, 3, 4, 5, 6};
-		int inPut2 = 5;
-		int answer = solution(inPut1, inPut2);
+		int[] inPut1 = {1, 2, 3};
+		int inPut2 = 3;
+//		int answer = solution(inPut1, inPut2);
+		int answer = solution2(inPut1, inPut2);
 		System.out.println(answer);
 	}
 }
