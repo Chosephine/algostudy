@@ -6,12 +6,8 @@ import java.util.Arrays;
  */
 
 public class solve033 {
-	public static int resident(int n, int d) {
-		// q: quotient(몫), r: resident(나머지)
-		int q = n / d;
-		int r = n - d * q;
-		return r;
-	}
+	
+	// =================================fail=====================================
 	
 	public static int solution(int[] numbers, int k) {
 		int answer = 0;
@@ -49,6 +45,15 @@ public class solve033 {
         return answer;
     }
 	
+	// =================================sucess=====================================
+	
+	public static int resident(int n, int d) {
+		// q: quotient(몫), r: resident(나머지)
+		int q = n / d;
+		int r = n - d * q;
+		return r;
+	}
+	
 	public static int solution2(int[] numbers, int k) {
 		int num_len = numbers.length;
 		int answer = 0;
@@ -80,6 +85,12 @@ public class solve033 {
 		}
 		return answer;
 	}
+	
+	// =================================EZ=====================================
+	public int solution3(int[] numbers, int k) {
+        return numbers[2 * (k - 1) % numbers.length];
+        // ㅂㄷㅂㄷ....
+    }
 	
 	public static void main(String[] args) {
 		int[] inPut1 = {1, 2, 3};
