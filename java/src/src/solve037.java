@@ -6,6 +6,7 @@ import java.util.Arrays;
 */
 
 // 직접 소팅을 구현해야 할까 고민했지만... sort 메소드 사용 ^.^
+// java sort는 퀵소트이다..!
 
 public class solve037 {
 	public static int solution(int[] numbers) {
