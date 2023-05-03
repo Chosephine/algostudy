@@ -1,0 +1,7 @@
+-- 프로그래머스 59041 동명 동물 수 찾기
+SELECT NAME, COUNT(*) AS COUNT
+FROM ANIMAL_INS
+GROUP BY NAME HAVING NAME IS NOT NULL AND COUNT>=2
+ORDER BY NAME;
+
+-- 쿼리 실행 순서: where - group by - select
