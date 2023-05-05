@@ -1,0 +1,9 @@
+-- 프로그래머스 131530 가격대 별 상품 개수 구하기
+SELECT FLOOR(PRICE/10000)*10000 AS PRICE_GROUP, COUNT(*) AS PRODUCTS
+FROM PRODUCT
+GROUP BY PRICE_GROUP
+ORDER BY PRICE_GROUP;
+
+-- TRUNCATE(X, D): X를 소수점 D자리만 남기고 버림(D<0도 가능!)
+-- ROUND(X, D): X를 소수점 D+1 자리에서 반올림
+-- CEIL(), CEILING(), FLOOR()
