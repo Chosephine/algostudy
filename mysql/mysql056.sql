@@ -27,3 +27,11 @@ FROM (
     ) A
 GROUP BY MONTH, CAR_ID HAVING COUNT(*) > 0
 ORDER BY MONTH ASC, CAR_ID DESC;
+
+-- window 함수
+---- 특정 row에서 집계함수를 사용하고 싶을 때 사용하는 함수
+---- over 절과 함꼐 사용 : 집계함수 OVER (PARTITION BY [COL]) 
+---- 적용 순서는 WHERE, GROUP BY, HAVING 다음 / ORDER BY, LIMIT, SELECT, DISTINCT 이전
+
+-- 되는 sql문과 안되는 sql문의 차이
+---- 안되는 코드는 위의 적용 순서와 맞지 않음! WINDOW FUNCTION에 해당하는 COUNT 컬럼이 발생하기 이전에 선언됨
