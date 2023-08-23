@@ -1,0 +1,13 @@
+-- 프로그래머스 62284 우유와 요거트가 담긴 장바구니
+
+SELECT DISTINCT M.CART_ID
+FROM CART_PRODUCTS M 
+    INNER JOIN (
+        SELECT *
+        FROM CART_PRODUCTS 
+        WHERE NAME='Yogurt'
+    ) Y
+    ON M.CART_ID=Y.CART_ID
+WHERE M.NAME='Milk'
+ORDER BY CART_ID;
+
