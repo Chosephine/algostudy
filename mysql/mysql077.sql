@@ -19,3 +19,5 @@ SELECT
 FROM CTE
 GROUP BY YEAR, MONTH
 ORDER BY YEAR, MONTH;
+
+-- 사용자 정의 변수를 사용하면 PUCHASED_RATIO 에서 매번 쿼리를 날리지 않아도 된다..!
