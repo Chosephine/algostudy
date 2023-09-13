@@ -1,3 +1,6 @@
+# 백준 7569 토마토
+# https://www.acmicpc.net/problem/7569
+
 import sys
 from collections import deque
 
