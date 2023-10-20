@@ -33,3 +33,19 @@ def solution2(phone_book):
                 return False
 
     return answer
+
+# 정확성 83.3 / 효율성 16.7
+def solution3(phone_book):
+    # 사전식으로 정렬해서 바로 뒤에 있는 번호와 비교하기
+    phone_book.sort()
+
+    answer = True
+
+    page = len(phone_book)
+    for i in range(page - 1):
+        l = len(phone_book[i])
+
+        if phone_book[i] == phone_book[i + 1][:l]:
+            return False
+
+    return answer
