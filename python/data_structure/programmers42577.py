@@ -18,3 +18,18 @@ def solution1(phone_book):
                 break
 
     return answer
+
+# 정확성 83.3 / 효율성 8.3
+def solution2(phone_book):
+    phone_book.sort(key=lambda x: len(x))
+
+    answer = True
+
+    page = len(phone_book)
+    for i in range(page):
+        l = len(phone_book[i])
+        for j in range(i + 1, page):
+            if phone_book[j][:l] == phone_book[i]:
+                return False
+
+    return answer
