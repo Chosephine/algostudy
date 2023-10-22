@@ -14,7 +14,7 @@ def find(node):
         relations[node] = find(relations[node])
     return relations[node]
 
-def union(node1, node2):크
+def union(node1, node2):
     root1 = find(node1)
     num1 = numbers[root1]
 
