@@ -12,3 +12,5 @@
   [Link](https://leetcode.com/problemset/all/)
 - `hackerrank` Hackerrank 풀이
   [Link](https://www.hackerrank.com/dashboard)
+- `solvesql` solvesql 풀이 
+  [Link](https://solvesql.com/problems/)
