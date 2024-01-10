@@ -52,3 +52,52 @@ FROM
     FROM
       points
   )
+
+-- 문제에 맞게 GROUP BY 사용하여 리팩토링
+-- WINDOWN 함수를 빼고 GROUP BY + 집계함수를 사용하면 동일한 결과를 얻을 수 있다.
+
+SELECT
+  quartet,
+  round(x_mean, 2) as x_mean,
+  round(
+    (
+      SUM(x_deviation * x_deviation)/(cnt - 1)
+    ),
+    2
+  ) as x_var,
+  round(y_mean, 2) as y_mean,
+  round(
+    (
+      SUM(y_deviation * y_deviation)/(cnt - 1)
+    ),
+    2
+  ) as y_var
+FROM
+  (
+    SELECT
+      quartet,
+      avg(x) over (
+        PARTITION by
+          quartet
+      ) as x_mean,
+      avg(y) over (
+        PARTITION by
+          quartet
+      ) as y_mean,
+      x - avg(x) over (
+        PARTITION by
+          quartet
+      ) as x_deviation,
+      y - avg(y) over (
+        PARTITION by
+          quartet
+      ) as y_deviation,
+      count(*) over (
+        PARTITION BY
+          quartet
+      ) as cnt
+    FROM
+      points
+  )
+  GROUP BY
+    quartet
