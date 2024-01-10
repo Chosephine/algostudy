@@ -7,48 +7,19 @@ SELECT
   distinct quartet,
   round(x_mean, 2) as x_mean,
   round(
-    (
-      SUM(x_deviation * x_deviation) over (
-        PARTITION BY
-          quartet
-      )/(cnt - 1)
-    ),
-    2
-  ) as x_var,
+    (SUM(x_deviation * x_deviation) over (PARTITION BY quartet)/(cnt - 1)), 2) as x_var,
   round(y_mean, 2) as y_mean,
   round(
-    (
-      SUM(y_deviation * y_deviation) over (
-        PARTITION BY
-          quartet
-      )
-    ) / (cnt - 1),
-    2
-  ) as y_var
+    (SUM(y_deviation * y_deviation) over (PARTITION BY quartet)) / (cnt - 1),2) as y_var
 FROM
   (
     SELECT
       quartet,
-      avg(x) over (
-        PARTITION by
-          quartet
-      ) as x_mean,
-      avg(y) over (
-        PARTITION by
-          quartet
-      ) as y_mean,
-      x - avg(x) over (
-        PARTITION by
-          quartet
-      ) as x_deviation,
-      y - avg(y) over (
-        PARTITION by
-          quartet
-      ) as y_deviation,
-      count(*) over (
-        PARTITION BY
-          quartet
-      ) as cnt
+      avg(x) over (PARTITION by quartet) as x_mean,
+      avg(y) over (PARTITION by quartet) as y_mean,
+      x - avg(x) over (PARTITION by quartet) as x_deviation,
+      y - avg(y) over (PARTITION by quartet) as y_deviation,
+      count(*) over (PARTITION BY quartet) as cnt
     FROM
       points
   )
@@ -59,43 +30,18 @@ FROM
 SELECT
   quartet,
   round(x_mean, 2) as x_mean,
-  round(
-    (
-      SUM(x_deviation * x_deviation)/(cnt - 1)
-    ),
-    2
-  ) as x_var,
+  round((SUM(x_deviation * x_deviation)/(cnt - 1)), 2) as x_var,
   round(y_mean, 2) as y_mean,
-  round(
-    (
-      SUM(y_deviation * y_deviation)/(cnt - 1)
-    ),
-    2
-  ) as y_var
+  round((SUM(y_deviation * y_deviation)/(cnt - 1)), 2) as y_var
 FROM
   (
     SELECT
       quartet,
-      avg(x) over (
-        PARTITION by
-          quartet
-      ) as x_mean,
-      avg(y) over (
-        PARTITION by
-          quartet
-      ) as y_mean,
-      x - avg(x) over (
-        PARTITION by
-          quartet
-      ) as x_deviation,
-      y - avg(y) over (
-        PARTITION by
-          quartet
-      ) as y_deviation,
-      count(*) over (
-        PARTITION BY
-          quartet
-      ) as cnt
+      avg(x) over (PARTITION by quartet) as x_mean,
+      avg(y) over (PARTITION byquartet) as y_mean,
+      x - avg(x) over (PARTITION by quartet) as x_deviation,
+      y - avg(y) over (PARTITION by quartet) as y_deviation,
+      count(*) over (PARTITION BY quartet) as cnt
     FROM
       points
   )
