@@ -42,3 +42,7 @@ if __name__ == "__main__":
             waiting_truck_idx += 1
 
     print(answer)
+
+
+# deque 로 시뮬레이션 한 코드들이 오히려 시간은 줄어들었음
+# q.popleft(), q.append() 하는 과정들..!
