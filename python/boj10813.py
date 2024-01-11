@@ -3,7 +3,16 @@
 
 def change(arr: list, i: int, j: int)->list:
 
-    arr[i], arr[j] = arr[j], arr[i]
+    # ver1
+    # arr[i], arr[j] = arr[j], arr[i]
+
+    # ver2
+    # 다른 언어 사용할 경우 아래 방법으로 해야 함
+    # 시간효율 / 공간효율 면에서는 ver1와 차이 없음
+
+    temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
 
     return arr
 
