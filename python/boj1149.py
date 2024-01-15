@@ -1,6 +1,19 @@
 # 백준 1149 RGB거리
 # https://www.acmicpc.net/problem/1149
 
+def dfs(n: int, matrix: list, current_row: int, former_color: int, current_sum: int) -> int:
+
+    if current_row == N:
+        return current_sum
+
+    temp_result = []
+
+    for i in range(3):
+        if former_color != i:
+            temp_result.append(dfs(n, matrix, current_row + 1, i, current_sum + matrix[current_row][i]))
+
+    return min(temp_result)
+
 
 if __name__ == "__main__":
     import sys
@@ -9,25 +22,10 @@ if __name__ == "__main__":
 
     N = int(input())
 
-    # former_color_info 에서 각 숫자가 의미하는 것
-    # 0 : R / 1 : G / 2 : B
-    former_color_info = None
+    cost_table = []
     min_cost = 0
 
     for _ in range(N):
-        costs = list(map(int, input().split()))
-        for i in range(3):
-            costs[i] = (costs[i], i)
+        cost_table.append(list(map(int, input().split())))
 
-        costs.sort()
-
-        if costs[0][1] != former_color_info:
-            min_cost += costs[0][0]
-            former_color_info = costs[0][1]
-            print(costs[0][0])
-        else:
-            min_cost += costs[1][0]
-            former_color_info = costs[1][1]
-            print(costs[1][0])
-
-    print(min_cost)
+    print(dfs(N, cost_table, 0, 3, 0))
