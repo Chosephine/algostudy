@@ -1,18 +1,19 @@
 # 백준 1149 RGB거리
 # https://www.acmicpc.net/problem/1149
 
-def dfs(n: int, matrix: list, current_row: int, former_color: int, current_sum: int) -> int:
+# i번째 집에 j색깔을 칠했을 때의 최댓값을 구하는 방향으로 풀이
+def dp(n: int, costs: list) -> int:
 
-    if current_row == N:
-        return current_sum
+    color_table = [[0, 0, 0] for _ in range(n)]
+    color_table[0] = costs[0]
 
-    temp_result = []
+    for i in range(1, n):
+        color_table[i][0] = costs[i][0] + min(color_table[i - 1][1], color_table[i - 1][2])
+        color_table[i][1] = costs[i][1] + min(color_table[i - 1][0], color_table[i - 1][2])
+        color_table[i][2] = costs[i][2] + min(color_table[i - 1][0], color_table[i - 1][1])
 
-    for i in range(3):
-        if former_color != i:
-            temp_result.append(dfs(n, matrix, current_row + 1, i, current_sum + matrix[current_row][i]))
+    return min(color_table[n-1])
 
-    return min(temp_result)
 
 
 if __name__ == "__main__":
@@ -28,4 +29,4 @@ if __name__ == "__main__":
     for _ in range(N):
         cost_table.append(list(map(int, input().split())))
 
-    print(dfs(N, cost_table, 0, 3, 0))
+    print(dp(N, cost_table))
