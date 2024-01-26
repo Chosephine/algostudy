@@ -1,4 +1,4 @@
-package src;
+
 
 /*
  * 프로그래머스 120902 문자열 계산하기
@@ -30,7 +30,7 @@ public class solve056 {
         return answer;
     }
 	
-	public static void main(String[] args) {\
+	public static void main(String[] args) {
 		
 		String input_case = "3 + 4";
 		

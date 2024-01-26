@@ -1,4 +1,4 @@
-package src;
+
 
 /*
  * 팩토리얼 
