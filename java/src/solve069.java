@@ -20,6 +20,7 @@ public class solve069 {
 			
 		}
 		
+		// ver.1 comparator	객체 생성 
 //		Arrays.sort(arr, new Comparator<String[]>() {
 //			
 //			@Override
@@ -29,6 +30,7 @@ public class solve069 {
 //			
 //		});
 		
+		// ver.2 람다식 활용 
 		Arrays.sort(arr, (s1, s2) -> Integer.parseInt(s1[0]) - Integer.parseInt(s2[0]));
 
 		
